@@ -19,6 +19,9 @@ def main() -> int:
     if not ENTRY or not ENTRY.strip():
         print("error: entry is empty or only whitespace", file=sys.stderr)
         return 1
+    if ENTRY != ENTRY.strip():
+        print("error: entry has leading or trailing whitespace", file=sys.stderr)
+        return 1
     if len(ENTRY) > 200:
         print(f"error: entry is {len(ENTRY)} chars, over the 200 limit", file=sys.stderr)
         return 1
